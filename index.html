@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Experiência interativa Jornada da Formadora">
+  <title>Jornada Da Formadora</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page-shell">
+    <header class="hero-header">
+      <span class="eyebrow">✦ DESCUBRA CADA ETAPA DA NARRATIVA ✦</span>
+      <h1>Jornada Da Formadora</h1>
+      <p class="instructions">
+        Clique nas imagens para avançar pelas cenas. Explore as três sequências
+        para liberar o Pergaminho.
+      </p>
+    </header>
+
+    <section id="journeyGrid" class="journey-grid" aria-label="Sequências da Jornada da Formadora"></section>
+
+    <section class="progress-section" aria-label="Progresso">
+      <div class="progress-labels">
+        <span id="progressText">0 de 3 sequências concluídas</span>
+        <span id="progressPercent">0%</span>
+      </div>
+      <div id="progressTrack" class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="3" aria-valuenow="0">
+        <div id="progressBar" class="progress-bar"></div>
+      </div>
+    </section>
+
+    <section id="completionBox" class="completion-box" hidden>
+      <div>
+        <h2>A jornada está completa!</h2>
+        <p>As três sequências foram percorridas. Seu pergaminho está liberado.</p>
+      </div>
+      <button id="openParchmentButton" class="primary-button" type="button">
+        <span aria-hidden="true">📜</span>
+        Produzir Pergaminho
+      </button>
+    </section>
+  </main>
+
+  <div id="parchmentModal" class="modal" hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+
+    <section class="parchment-screen" role="dialog" aria-modal="true" aria-labelledby="parchmentTitle">
+      <button class="close-button pdf-ignore" type="button" aria-label="Fechar pergaminho" data-close-modal>×</button>
+
+      <div id="parchmentContent" class="parchment-content">
+        <h2 id="parchmentTitle">Pergaminho da Formadora</h2>
+
+        <p class="parchment-text">
+          Eu,
+          <span class="editable-field" contenteditable="true" role="textbox" aria-label="Nome" data-placeholder="Nome" data-field="nome"></span>,
+          ao percorrer a Jornada De Autoavaliação Da Formadora quero continuar a
+          <span class="editable-field long-field" contenteditable="true" role="textbox" aria-label="Propósito para continuar" data-placeholder="escreva um propósito" data-field="continuar"></span>,
+          parar e refletir sobre
+          <span class="editable-field long-field" contenteditable="true" role="textbox" aria-label="Propósito de mudança" data-placeholder="escreva um propósito de mudança" data-field="mudar"></span>,
+          e começar a
+          <span class="editable-field long-field" contenteditable="true" role="textbox" aria-label="Novo propósito" data-placeholder="escreva um propósito" data-field="comecar"></span>.
+        </p>
+
+        <div class="signature-ornament" aria-hidden="true">✦</div>
+      </div>
+
+      <div class="parchment-actions pdf-ignore">
+        <p id="formMessage" class="form-message" aria-live="polite"></p>
+        <button id="generatePdfButton" class="generate-button" type="button">
+          <span aria-hidden="true">⬇</span>
+          Gerar Pergaminho
+        </button>
+      </div>
+    </section>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@4.2.1/dist/jspdf.umd.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
